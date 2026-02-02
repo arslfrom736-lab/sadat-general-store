@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sadat General Store - Your Trusted Neighborhood General Store in G-12 Islamabad. Quality groceries, dairy, household essentials and more.">
+    <title>Sadat General Store | G-12 Islamabad</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-green: #1B5E20;
+            --light-green: #2E7D32;
+            --primary-blue: #1565C0;
+            --light-blue: #1976D2;
+            --accent-gold: #F9A825;
+            --text-dark: #212121;
+            --text-light: #616161;
+            --bg-light: #F5F5F5;
+            --white: #FFFFFF;
+            --shadow: rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 72px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-intro {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 168, 37, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        /* Features Bar */
+        .features-bar {
+            background: var(--white);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px var(--shadow);
+            margin: 0 2rem;
+            border-radius: 10px;
+            transform: translateY(-30px);
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #E8F5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.25rem;
+        }
+
+        .feature-text h3 {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 4rem;
+            margin: 2rem auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .owner-highlight {
+            background: var(--white);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-gold);
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .owner-highlight strong {
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #E3F2FD, #E8F5E9);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px var(--shadow);
+            text-align: center;
+        }
+
+        .image-badge .years {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: block;
+        }
+
+        .image-badge .text {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--white);
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #E0E0E0;
+            background: var(--white);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--primary-green);
+            color: var(--white);
+            border-color: var(--primary-green);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            display: none;
+        }
+
+        .products-grid.active {
+            display: grid;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #F5F5F5;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #FAFAFA;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: var(--light-green);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: #E8F5E9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .hours-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #BDBDBD;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #757575;
+            font-size: 0.875rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                transition: right 0.3s;
+                box-shadow: 0 2px 10px var(--shadow);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .features-bar {
+                margin: 0 1rem;
+                gap: 1.5rem;
+                transform: translateY(-20px);
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .about {
+                padding: 2rem;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .category-tabs {
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                gap: 2rem;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #E8F5E9;
+            color: var(--primary-green);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="logo-text">
+                    Sadat General Store
+                    <span>Quality Essentials Daily</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Sadat General Store</h1>
+            <p class="hero-tagline">"Your Trusted Neighborhood General Store in G-12 Islamabad"</p>
+            <p class="hero-intro">
+                Serving the community with premium quality groceries, fresh dairy, household essentials, and personal care products since 2010. We pride ourselves on offering authentic products at honest prices with a smile.
+            </p>
+            <div class="cta-buttons">
+                <a href="#products" class="btn btn-primary">
+                    <i class="fas fa-shopping-basket"></i>
+                    Browse Products
+                </a>
+                <a href="https://wa.me/923001234567" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <div class="features-bar">
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Quality</h3>
+                <p>100% Authentic</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Service</h3>
+                <p>Home Delivery</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Availability</h3>
+                <p>Open Daily</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Trust</h3>
+                <p>15+ Years</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Learn about our journey and commitment to serving the G-12 community</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>A Legacy of Trust & Quality</h3>
+                <p>
+                    Sadat General Store has been a cornerstone of the Aslam Market community in G-12, Islamabad for over a decade. Founded by <strong>Asghar Shah</strong>, our store began with a simple mission: to provide residents with access to high-quality daily essentials at fair prices.
+                </p>
+                <p>
+                    What started as a small shop has grown into a trusted neighborhood destination, thanks to our unwavering commitment to customer satisfaction and authentic products. We understand the importance of reliable service in daily life, which is why we carefully curate our inventory to meet the diverse needs of our community.
+                </p>
+                <p>
+                    From premium Basmati rice and pure cooking oils to baby care essentials and household necessities, we ensure every product meets our strict quality standards. Our customers aren't just transactions—they are our neighbors, friends, and extended family.
+                </p>
+                
+                <div class="owner-highlight">
+                    <strong>Asghar Shah - Owner</strong>
+                    "Our success is built on trust. When you shop at Sadat General Store, you're not just buying products—you're investing in quality that your family deserves."
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-store-alt"></i>
+                    <div class="image-badge">
+                        <span class="years">15+</span>
+                        <span class="text">Years of Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="section-title">
+            <h2>Our Products</h2>
+            <p>Wide range of quality products organized for your convenience</p>
+        </div>
+
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="showCategory('grocery')">Grocery & Food</button>
+            <button class="tab-btn" onclick="showCategory('beverages')">Beverages</button>
+            <button class="tab-btn" onclick="showCategory('dairy')">Dairy Products</button>
+            <button class="tab-btn" onclick="showCategory('household')">Household</button>
+            <button class="tab-btn" onclick="showCategory('personal')">Personal Care</button>
+            <button class="tab-btn" onclick="showCategory('baby')">Baby Care</button>
+        </div>
+
+        <!-- Grocery Category -->
+        <div id="grocery" class="products-grid active">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.hasrice.com/03f7508430b5694dd50440279b4fbbf32905dc89.jpg" alt="Basmati Rice">
+                </div>
+                <div class="product-info">
+                    <h4>Premium Basmati Rice</h4>
+                    <p>Super Kernel & 1121 varieties</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.alicdn.com/7818b7c99e02610bcb58aaaf7121ea426e5f03ff.jpg" alt="Tapal Tea">
+                </div>
+                <div class="product-info">
+                    <h4>Tapal Tea</h4>
+                    <p>Danedar and premium blends</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.naheed.pk/e2d63e9c10e419d1a467fdd249618b0554886a32.jpg" alt="National Masala">
+                </div>
+                <div class="product-info">
+                    <h4>National Spices & Masalay</h4>
+                    <p>Biryani, Qorma, and mixed spices</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/estore.falakrice.com/b1dbc905156f7d6500e3b7fd2914ed64670f771e.jpg" alt="Falak Rice">
+                </div>
+                <div class="product-info">
+                    <h4>Falak Basmati Rice</h4>
+                    <p>Premium quality guaranteed</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/pakobserver.net/14592a43fea62dd642a6e0b44ee62555ee1dc096.jpg" alt="Cooking Oil">
+                </div>
+                <div class="product-info">
+                    <h4>Cooking Oil & Ghee</h4>
+                    <p>Dalda, Sufi, and premium brands</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://thumbs.dreamstime.com/b/assorted-legumes-lentils-pulses-raw-wooden-table-top-view-healthy-vegan-food-background-179663948.jpg" alt="Pulses" onerror="this.src='https://via.placeholder.com/200?text=Pulses'">
+                </div>
+                <div class="product-info">
+                    <h4>Fresh Pulses</h4>
+                    <p>Chana, Masoor, Moong, Mix Dal</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beverages Category -->
+        <div id="beverages" class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/nazarjanssupermarket.com/7fbbf1797ffcd14fd03d0f29e295a3b3b8b232cf.jpg" alt="Soft Drinks">
+                </div>
+                <div class="product-info">
+                    <h4>Soft Drinks</h4>
+                    <p>Pepsi, Coca Cola, 7UP, Sprite</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Mineral+Water" alt="Mineral Water">
+                </div>
+                <div class="product-info">
+                    <h4>Mineral Water</h4>
+                    <p>Nestle, Aqua, and pure drinking water</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Juices" alt="Juices">
+                </div>
+                <div class="product-info">
+                    <h4>Fresh Juices</h4>
+                    <p> Nestle Fruita Vitals, Shezan</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Squashes" alt="Squashes">
+                </div>
+                <div class="product-info">
+                    <h4>Squashes & Syrups</h4>
+                    <p>Rooh Afza, Jam-e-Shirin</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dairy Category -->
+        <div id="dairy" class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/almanan.pk/097833479facbf0be9d20b945fb95aed98949c33.jpg" alt="Milk">
+                </div>
+                <div class="product-info">
+                    <h4>Fresh Milk</h4>
+                    <p>Nestle Milkpak, Olpers, Daily</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Yogurt" alt="Yogurt">
+                </div>
+                <div class="product-info">
+                    <h4>Yogurt (Dahi)</h4>
+                    <p>Fresh and flavored varieties</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Butter" alt="Butter">
+                </div>
+                <div class="product-info">
+                    <h4>Butter & Cheese</h4>
+                    <p>Nestle, Adams, and Lacto</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Cream" alt="Cream">
+                </div>
+                <div class="product-info">
+                    <h4>Cream & Desserts</h4>
+                    <p>Cooking cream and custards</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Household Category -->
+        <div id="household" class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.catchnpack.pk/a52c4d4a996563b4e92483eede2c84d8a08e32a4.png" alt="Washing Powder">
+                </div>
+                <div class="product-info">
+                    <h4>Surf Excel</h4>
+                    <p>Washing powder and liquid</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/mrcheckout.net/a121412c88ef0f9bdc63045555174b2bcb488d45.jpg" alt="Cleaners">
+                </div>
+                <div class="product-info">
+                    <h4>Cleaning Products</h4>
+                    <p>Floor cleaners, dishwashing liquid</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Soaps" alt="Soaps">
+                </div>
+                <div class="product-info">
+                    <h4>Bath Soaps</h4>
+                    <p>Lux, Lifebuoy, Safeguard</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Tissue" alt="Tissue">
+                </div>
+                <div class="product-info">
+                    <h4>Tissue Papers</h4>
+                    <p>Facial and toilet tissues</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Care Category -->
+        <div id="personal" class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Shampoo" alt="Shampoo">
+                </div>
+                <div class="product-info">
+                    <h4>Shampoo</h4>
+                    <p>Head & Shoulders, Pantene, Clear</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Toothpaste" alt="Toothpaste">
+                </div>
+                <div class="product-info">
+                    <h4>Dental Care</h4>
+                    <p>Colgate, Sensodyne, toothbrushes</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Hair+Oil" alt="Hair Oil">
+                </div>
+                <div class="product-info">
+                    <h4>Hair Oil</h4>
+                    <p>Dabur, Parachute, coconut oil</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Razors" alt="Razors">
+                </div>
+                <div class="product-info">
+                    <h4>Razors & Blades</h4>
+                    <p>Gillette, 7 O'Clock</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Baby Care Category -->
+        <div id="baby" class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/qne.com.pk/e07b113ade289219b6b5b747cf4ff71d0d163b73.jpg" alt="Baby Wipes">
+                </div>
+                <div class="product-info">
+                    <h4>Baby Wipes</h4>
+                    <p>Pampers, Mothercare, 64-80 pcs</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/media.naheed.pk/4f9bd2792745f235d9004d1cc5f3f049d2d837dc.jpg" alt="Diapers">
+                </div>
+                <div class="product-info">
+                    <h4>Diapers</h4>
+                    <p>All sizes available, premium brands</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.hydrisupermarket.com.pk/ff1f00958eaf1f2190f22bbf93c4446818b555d5.jpg" alt="Mothercare">
+                </div>
+                <div class="product-info">
+                    <h4>Mothercare Wipes</h4>
+                    <p>With Aloe Vera & Vitamin E</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200?text=Baby+Food" alt="Baby Food">
+                </div>
+                <div class="product-info">
+                    <h4>Baby Food</h4>
+                    <p>Cerelac, formula milk</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Visit us or send a message for inquiries and home delivery orders</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We'll contact you soon.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="03XX-XXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message / Order Details</label>
+                        <textarea id="message" name="message" required placeholder="Tell us what you need..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Store Address</h3>
+                        <p>Aslam Market, G-12 Sector<br>Islamabad, Pakistan</p>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.6847150677274!2d72.9898!3d33.6694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df8d6c0f6e5d4b%3A0xf8f1c2d4e5a6b7c8!2sG-12%2C%20Islamabad!5e0!3m2!1sen!2s!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Business Hours</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span>Monday - Saturday</span>
+                                <span>7:00 AM - 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Sunday</span>
+                                <span>8:00 AM - 9:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Public Holidays</span>
+                                <span>8:00 AM - 8:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Quick Contact</h3>
+                        <p>
+                            <strong>Owner:</strong> Asghar Shah<br>
+                            <strong>Phone:</strong> 0300-1234567<br>
+                            <strong>WhatsApp:</strong> Available for orders
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sadat General Store</h3>
+                <p>Your trusted neighborhood store in G-12 Islamabad. Providing quality products and excellent service since 2010.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#about">About Us</a></p>
+                <p><a href="#products">Products</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Product Categories</h3>
+                <p><a href="#products">Grocery & Food</a></p>
+                <p><a href="#products">Dairy Products</a></p>
+                <p><a href="#products">Household Items</a></p>
+                <p><a href="#products">Baby Care</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Aslam Market, G-12, Islamabad</p>
+                <p><i class="fas fa-phone"></i> 0300-1234567</p>
+                <p><i class="fas fa-envelope"></i> info@sadatgeneralstore.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sadat General Store. All rights reserved. | Owned by Asghar Shah</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Product Category Tabs
+        function showCategory(category) {
+            // Hide all grids
+            document.querySelectorAll('.products-grid').forEach(grid => {
+                grid.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(category).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+            
+            // Scroll to top of form
+            document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
